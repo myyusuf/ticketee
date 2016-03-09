@@ -1,0 +1,13 @@
+require "rails_helper"
+
+RSpec.feature "Users can create new projects" do
+  scenario "With valid attributes" do
+    visit "/"
+    click_link "New Project"
+    fill_in "Name", with: "Sublime Text 3"
+    fill_in "Description", with: "A text editor for every one"
+    click_button "Create Project"
+
+    expect(page).to have_content "Project has been created"
+  end  
+end
